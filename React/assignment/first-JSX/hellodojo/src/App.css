@@ -1,0 +1,14 @@
+.App {
+  text-align: start;
+  margin-left: 20 px;
+  display: inline-block;
+}
+
+.todolist{
+  font-size: 20px;
+}
+.title{
+  font-family: sans-serif;
+}
+
+
