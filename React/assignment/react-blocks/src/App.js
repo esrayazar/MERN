@@ -8,18 +8,26 @@ import Advertisement from './components/Advertisement';
 
 function App() {
   return (
-    <div className="App" style={{ backgroundColor: "lightGrey", width: "20%px", maxheight: "700px"}}  >
+    <div className="App" style={{ 
+      backgroundColor: "#dddddd", 
+      width: "95%px", 
+      maxheight: "700px"
+      }}>
       <Header/>
+      <div style={{
+        display:'flex',
+        margin:"auto",
+        
+    }}>
       <Navigation/>
       <Main>
         <Subcontents/>
         <Subcontents/>
         <Subcontents/>
         <Advertisement/>
-
-
-
       </Main>
+
+      </div>
 
 
       

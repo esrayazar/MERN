@@ -4,7 +4,13 @@ import React from "react";
 
 const Main = (props)=>{
     return(
-        <div style={{ backgroundColor: "#e06666", width: "700px", height: "400px", margin:"30px", marginTop:"40px", alignItems:"center"}}>
+        <div style={{ 
+            backgroundColor: "#e06666", 
+            width: "90%", 
+            maxheight: "400px", 
+            margin:"30px",
+            marginTop:"0px"
+            }}>
             {props.children}
         </div>
     )
