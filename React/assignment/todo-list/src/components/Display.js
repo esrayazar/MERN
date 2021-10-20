@@ -34,7 +34,7 @@ setTodoList(newList)
             todoList.map((todo,index)=>(
                 <div key={index}>
                     
-                        <li > {todo.contest}</li>
+                        <li > {todo.content}</li>
                         <input type="checkbox" checked={todo.checked} onChange= {(e)=>checkboxHandler(index)} /> 
                         <button onClick={(e)=>deleteHandler(todo.content)}>DELETE</button>
                 </div>
