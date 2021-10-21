@@ -12,12 +12,12 @@ const [pokemon, setPokemon]=useState([]);
     }, []);
 
     return(
-        <div style={{alignItems:"center"}} >
-            <button >FETCH POKEMON</button>
-            <ul style={{textAlign:"center",listStyle:"inside"}}> 
+        <div style={{border:"solid 1px black",textAlign:"center" }} >
+            <button style={{textAlign:"center",margin:"auto"}} >FETCH POKEMON</button>
+            <ul style={{textAlign:"center",width:"500px",margin:"auto",border:"solid 1px black",marginTop:"20px"}}> 
                 
             {pokemon.length > 0 && pokemon.map((pokemon, index)=>{
-                return (<li style={{textIndent:"5px"}}key={index}><span >{pokemon.name}</span></li> )
+                return (<li style={{width:"20%",textIndent:"5px",margin:"auto",border:"solid 1px black"}}key={index}><span >{pokemon.name}</span></li> )
             })}
             </ul>
 
