@@ -54,6 +54,22 @@ module.exports = {
                 res.json(updateJoke);
 
         })
+    },
+
+    deleteJoke: (req, res)=>{
+        Jokes.deleteOne({_id:req.params.id})
+            .then((deletedJoke)=>{
+                console.log(deletedJoke);
+                res.json(this.deletedJoke)
+            })
+            .catch((err)=>{
+                console.log("Delete one musician falled")
+                res.json({message: "Something went wrong in deleteJoke", error: err})
+
+            })
+
+
+
     }
 
 
