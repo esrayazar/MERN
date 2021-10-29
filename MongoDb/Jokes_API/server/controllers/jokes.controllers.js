@@ -49,11 +49,18 @@ module.exports = {
             req.body,
             {new:true, runValidators:true}
         )
-        .then((updateJokes)=>{
-            console.log(updateJoke);
-                res.json(updateJoke);
+        .then((updatedJoke)=>{
+            console.log(updatedJoke);
+            res.json(updatedJoke)
 
         })
+        .catch((err)=>{
+            console.log("Something went wrong in update")
+            res.status(400).json(err)
+        })
+        
+
+        
     },
 
     deleteJoke: (req, res)=>{
@@ -67,12 +74,5 @@ module.exports = {
                 res.json({message: "Something went wrong in deleteJoke", error: err})
 
             })
-
-
-
     }
-
-
-
-
 }
