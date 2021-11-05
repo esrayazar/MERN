@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+//import { updateProduct } from '../../server/controllers/product.controller';
 import './App.css';
+import Main from "./view/Main";
+import OneProduct from './components/OneProduct';
+import {Router} from "@reach/router"
+import UpdateProduct from './components/UpdateProduct';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Main path="/" />
+        <OneProduct path="/product/:id" />
+        <UpdateProduct path="/product/edit/:id" />
+      </Router>
+      
     </div>
   );
 }
