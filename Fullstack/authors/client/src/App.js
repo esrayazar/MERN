@@ -3,8 +3,9 @@ import {Router} from "@reach/router";
 import AuthorsList from './components/AuthorsList';
 import EditAuthor from './components/EditAuthor';
 import NewAuthor from './components/NewAuthor';
-import OneAuthor from './components/OneAuthor';
+// import OneAuthor from './components/OneAuthor';
 import { useState } from 'react';
+import `bootstrap/dist/css/bootstrap.min.css`:
 
 function App() {
   const [author, setAuthor] = useState("");
@@ -13,7 +14,7 @@ function App() {
       <Router>
         <AuthorsList path="/" />
         <NewAuthor path="/author/new" author={author} setAuthor={setAuthor}/>
-        <OneAuthor path="/author/:id" />
+        {/* <OneAuthor path="/author/:id" /> */}
         <EditAuthor path="/author/edit/:id" author={author} setAuthor={setAuthor} />
 
         

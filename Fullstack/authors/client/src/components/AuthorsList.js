@@ -47,17 +47,29 @@ const AuthorsList = (props)=>{
                 ? authorsList.map((author, index)=>(
                     <tr key= {index}>
                         <td>
-                        {/* <Link to={`/author/${author._id}`}> */}
                         <p>{author.Author}</p>
-                        {/* </Link> */}
                         </td>
                         <td >
 
                         <Link to={`/author/edit/${author._id}`}>
-                        <span>Edit</span>
+                        <button
+                             style={{
+                                width:"10%",
+                                border:"1px black solid",
+                                padding:"5px",
+                                margin: "10px",
+                                backgroundColor:"greenyellow"
+                            }}
+                        >Edit</button>
                         </Link>
 
-                        <button onClick={()=> deleteFilter(author._id)}>
+                        <button  style={{
+                                width:"10%",
+                                border:"1px black solid",
+                                padding:"5px",
+                                margin: "10px",
+                            }}
+                            onClick={()=> deleteFilter(author._id)}>
                             Delete
                         </button>
                         </td>
