@@ -12,7 +12,6 @@ const AuthorsList = (props)=>{
         .then((res)=>{
             console.log(res.data);
             setAuthorsList(res.data);
-            //console.log("authors: ", authorsList)
         })
         .catch((err)=> console.log(err));
 
@@ -48,9 +47,9 @@ const AuthorsList = (props)=>{
                 ? authorsList.map((author, index)=>(
                     <tr key= {index}>
                         <td>
-                        <Link to={`/author/${author._id}`}>
+                        {/* <Link to={`/author/${author._id}`}> */}
                         <p>{author.Author}</p>
-                        </Link>
+                        {/* </Link> */}
                         </td>
                         <td >
 

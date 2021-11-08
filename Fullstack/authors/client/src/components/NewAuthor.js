@@ -5,12 +5,9 @@ import { Link,navigate } from "@reach/router";
 const NewAuthor = (props)=>{
     const {author, setAuthor} = props;
 
-    // const [author, setAuthor]= useState("")
-
     const submitHandler =(e)=>{
         e.preventDefault();
-
-
+        
         axios.post("http://localhost:8000/api/authors",
         {
             "Author" : author
@@ -29,6 +26,11 @@ const NewAuthor = (props)=>{
     }
     return(
         <div>
+            <h1>Favorite authors</h1>
+            <Link to={`/`}>
+                <p>Home</p>
+            </Link>
+            <h3>Add a new author:</h3>
             <form onSubmit={submitHandler}>
                 <label>Name</label>
                 <input onChange={(e)=>setAuthor(e.target.value)} name="author" type="text" value={author}/>
