@@ -33,9 +33,10 @@ const AuthorsList = (props)=>{
         <div>
             <h1>Favorite authors</h1>
             <Link to={`/author/new`}>
-                <p>Add an author</p>
+                Add an author
                 </Link>
-            <table width="100%" border="1">
+                <p className="p-3 mb-2 text-purple fw-bold"> We have quotes by:</p>
+            <table className="table table-striped table-bordered border-dark">
                 <thead>
                     <tr>
                         <th>Author</th>
@@ -46,29 +47,17 @@ const AuthorsList = (props)=>{
                 {authorsList
                 ? authorsList.map((author, index)=>(
                     <tr key= {index}>
-                        <td>
+                        <td className="fw-bold">
                         <p>{author.Author}</p>
                         </td>
                         <td >
 
                         <Link to={`/author/edit/${author._id}`}>
-                        <button
-                             style={{
-                                width:"10%",
-                                border:"1px black solid",
-                                padding:"5px",
-                                margin: "10px",
-                                backgroundColor:"greenyellow"
-                            }}
-                        >Edit</button>
+                        <button className="gradiant m-2 btn-sm text-light fw-bold "
+                         >Edit</button>
                         </Link>
 
-                        <button  style={{
-                                width:"10%",
-                                border:"1px black solid",
-                                padding:"5px",
-                                margin: "10px",
-                            }}
+                        <button className="gradiant m-2 btn-sm text-white fw-bold"
                             onClick={()=> deleteFilter(author._id)}>
                             Delete
                         </button>

@@ -25,18 +25,22 @@ const NewAuthor = (props)=>{
         })
     }
     return(
-        <div>
+        <div className="container d-flex justify-content-center">
+            <div className= "row w-25 d-flex justify-content-center" > 
             <h1>Favorite authors</h1>
             <Link to={`/`}>
-                <p>Home</p>
+                Home
             </Link>
-            <h3>Add a new author:</h3>
+            <h3 className="p-3 mb-2 text-purple">Add a new author:</h3>
             <form onSubmit={submitHandler}>
-                <label>Name</label>
-                <input onChange={(e)=>setAuthor(e.target.value)} name="author" type="text" value={author}/>
-                <input type= "submit"/>
-                <button onClick={()=>navigate("/")}>Cancel</button>
+                <div className="border border-dark  ">
+                <label className="m-3">Name</label>
+                <input onChange={(e)=>setAuthor(e.target.value)} name="author" type="text" value={author}/> <br/>
+                <input className="btn btn-primary m-2" type= "submit"/>
+                </div>
             </form>
+            <button className="btn btn-primary m-2" onClick={()=>navigate("/")}>Cancel</button>
+            </div>
 
         </div>
     )

@@ -5,7 +5,7 @@ import EditAuthor from './components/EditAuthor';
 import NewAuthor from './components/NewAuthor';
 // import OneAuthor from './components/OneAuthor';
 import { useState } from 'react';
-import `bootstrap/dist/css/bootstrap.min.css`:
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [author, setAuthor] = useState("");
