@@ -5,6 +5,7 @@ import { Link } from "@reach/router"
 
 const EditAuthor = (props)=>{
 
+    const {errors, setErrors} = props;
     const {author, setAuthor,id} = props;
     useEffect(()=> {
         axios
@@ -14,7 +15,10 @@ const EditAuthor = (props)=>{
             setAuthor(res.data.Author);
             
         })
-        .catch((err)=>console.log(err));
+        .catch((err)=>{
+            console.log(err);
+            setErrors(err.response.data.errors);
+        });
     },[id]);
     const submitHandler=(e)=>{
         e.preventDefault();
@@ -33,7 +37,7 @@ const EditAuthor = (props)=>{
     }
     return(
         <div className="container d-flex justify-content-center">
-            <div className= "row w-25 d-flex justify-content-center" > 
+            <div className= "row w-50 d-flex justify-content-center" > 
             <h1>Favorite authors</h1>
             <Link to={`/`}>
                 Home
@@ -45,6 +49,11 @@ const EditAuthor = (props)=>{
                 <input onChange={(e)=>setAuthor(e.target.value)} name="name" type="text" value={author}/> <br/>
                 <input  className="btn btn-primary m-2" type= "submit"/>
                 <button  className="btn btn-primary m-2" onClick={()=>navigate("/")}>Cancel</button>
+                {
+                    errors ?
+                    <span className="text-danger">{errors.Author.message}</span>
+                    :null
+                }
                 </div>
             </form>
             </div>
