@@ -48,7 +48,7 @@ const AuthorsList = (props)=>{
                 ? authorsList.map((author, index)=>(
                     <tr key= {index}>
                         <td className="fw-bold">
-                        <p>{author.Author}</p>
+                        <p>{author.author}</p>
                         </td>
                         <td >
 

@@ -6,13 +6,14 @@ import { Link } from "@reach/router"
 const EditAuthor = (props)=>{
 
     const {errors, setErrors} = props;
-    const {author, setAuthor,id} = props;
+    const {id} = props;
+    const [author, setAuthor] = useState("")
     useEffect(()=> {
         axios
         .get(`http://localhost:8000/api/authors/${id}`)
         .then((res)=>{
             console.log(res.data);
-            setAuthor(res.data.Author);
+            setAuthor(res.data.author);
             
         })
         .catch((err)=>{
@@ -36,13 +37,13 @@ const EditAuthor = (props)=>{
         })
     }
     return(
-        <div className="container d-flex justify-content-center">
-            <div className= "row w-50 d-flex justify-content-center" > 
-            <h1>Favorite authors</h1>
+        <div className="container d-flex justify-content-center">  
+            <div className= "row w-50 d-flex float-left" > 
+            <h2 className = "text-start">Favorite authors</h2>
             <Link to={`/`}>
                 Home
             </Link>
-            <h3 className="p-3 mb-2 text-purple">Edit this author</h3>
+            <h4 className="p-3 mb-2 text-purple text-start">Edit this author</h4>
             <form onSubmit={submitHandler}>
                 <div className="border border-dark">
                 <label className="m-3">Name:</label>
@@ -51,7 +52,7 @@ const EditAuthor = (props)=>{
                 <button  className="btn btn-primary m-2" onClick={()=>navigate("/")}>Cancel</button>
                 {
                     errors ?
-                    <span className="text-danger">{errors.Author.message}</span>
+                    <span className="text-danger">{errors.author.message}</span>
                     :null
                 }
                 </div>

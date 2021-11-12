@@ -9,21 +9,21 @@ module.exports = {
     },
 
     getOneAuthor: (req, res)=>{
-        Author.findById(req.params._id)
+        Author.findById({_id: req.params.id})
         .then((oneAuthor)=>res.json(oneAuthor))
         .catch((err)=>res.status(400).json(err))
     },
 
     createAuthor: (req, res)=>{
         Author.create(req.body)
-        .then((newAuthor)=>res.json({author: newAuthor}))
+        .then((newAuthor)=>res.json({newAuthor}))
         .catch((err)=>res.status(400).json(err))
 
     },
 
     updateAuthor: (req, res)=>{
         Author.findByIdAndUpdate(
-            {_id:req.params._id},
+            {_id:req.params.id},
             req.body,
             {
                 new:true,
@@ -34,7 +34,7 @@ module.exports = {
 
     },
     deleteAuthor:(req, res)=>{
-        Author.deleteOne({_id: req.params._id})
+        Author.deleteOne({_id: req.params.id})
         .then((deletedId)=>res.json(deletedId))
         .catch((err)=>res.status(400).json(err))
 

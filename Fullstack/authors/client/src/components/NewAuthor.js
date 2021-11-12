@@ -5,7 +5,7 @@ import { Link,navigate } from "@reach/router";
 const NewAuthor = (props)=>{
 
     const [errors, setErrors] = useState({});
-    const {author, setAuthor} = props;
+    const [author, setAuthor] = useState("")
 
     const submitHandler =(e)=>{
         e.preventDefault();
@@ -13,7 +13,7 @@ const NewAuthor = (props)=>{
         axios.post("http://localhost:8000/api/authors",
         {
           
-            "Author" : author
+             author
         })
         .then((res)=>{
             console.log(res);
@@ -31,11 +31,11 @@ const NewAuthor = (props)=>{
     return(
         <div className="container d-flex justify-content-center">
             <div className= "row w-50 d-flex justify-content-center" > 
-            <h1>Favorite authors</h1>
+            <h2>Favorite authors</h2>
             <Link to={`/`}>
                 Home
             </Link>
-            <h3 className="p-3 mb-2 text-purple">Add a new author:</h3>
+            <h4 className="p-3 mb-2 text-purple">Add a new author:</h4>
             <form onSubmit={submitHandler}>
                 <div className="border border-dark ">
                 <label className="m-3">Name</label>
@@ -45,8 +45,8 @@ const NewAuthor = (props)=>{
                 <br/>
 
                 {
-                    errors.Author ?
-                    <span className="text-danger">{errors.Author.message}</span>
+                    errors.author ?
+                    <span className="text-danger">{errors.author.message}</span>
                     :null
                 }
                 </div>

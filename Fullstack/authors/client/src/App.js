@@ -8,14 +8,14 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [author, setAuthor] = useState("");
+  // const [author, setAuthor] = useState("");
   return (
     <div className="App">
       <Router>
         <AuthorsList path="/" />
-        <NewAuthor path="/author/new" author={author} setAuthor={setAuthor}/>
+        <NewAuthor path="/author/new" />
         {/* <OneAuthor path="/author/:id" /> */}
-        <EditAuthor path="/author/edit/:id" author={author} setAuthor={setAuthor} />
+        <EditAuthor path="/author/edit/:id"/>
 
         
       </Router>
