@@ -16,9 +16,13 @@ module.exports = {
 
     createAuthor: (req, res)=>{
         Author.create(req.body)
-        .then((newAuthor)=>res.json({newAuthor}))
-        .catch((err)=>res.status(400).json(err))
-
+        .then((newAuthor)=>{
+            res.json(newAuthor);
+        })
+                .catch((err)=>{
+                    console.log(err);
+                    res.status(400).json(err)
+                })
     },
 
     updateAuthor: (req, res)=>{

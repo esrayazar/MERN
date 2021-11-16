@@ -5,7 +5,7 @@ import { Link } from "@reach/router"
 
 const EditAuthor = (props)=>{
 
-    const {errors, setErrors} = props;
+    const [errors, setErrors] = useState({});
     const {id} = props;
     const [author, setAuthor] = useState("")
     useEffect(()=> {
@@ -18,11 +18,11 @@ const EditAuthor = (props)=>{
         })
         .catch((err)=>{
             console.log(err);
-            setErrors(err.response.data.errors);
         });
     },[id]);
     const submitHandler=(e)=>{
         e.preventDefault();
+     
         axios.put(`http://localhost:8000/api/authors/${id}`,
         {
             author
@@ -33,7 +33,9 @@ const EditAuthor = (props)=>{
             navigate("/");
         })
         .catch((err)=>{
-            console.log(err);
+            console.log("edit error: ",err);
+            console.log("message: ", err.response.data.errors )
+            setErrors(err.response.data.errors);
         })
     }
     return(
@@ -45,13 +47,22 @@ const EditAuthor = (props)=>{
             </Link>
             <h4 className="p-3 mb-2 text-purple text-start">Edit this author</h4>
             <form onSubmit={submitHandler}>
+            {/* {
+
+            author.length<3?
+            <span className="text-danger">An author name must be at least 3 characters long</span>
+            :null
+
+            } */}
                 <div className="border border-dark">
                 <label className="m-3">Name:</label>
                 <input onChange={(e)=>setAuthor(e.target.value)} name="name" type="text" value={author}/> <br/>
                 <input  className="btn btn-primary m-2" type= "submit"/>
                 <button  className="btn btn-primary m-2" onClick={()=>navigate("/")}>Cancel</button>
+                <br/>
+
                 {
-                    errors ?
+                    errors.author ?
                     <span className="text-danger">{errors.author.message}</span>
                     :null
                 }
